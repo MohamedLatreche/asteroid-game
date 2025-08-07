@@ -3,6 +3,7 @@ from constants import *
 from player import *
 from asteroids import *
 from  asteroidfield import *
+from shots import *
 
 
 def main():
@@ -43,6 +44,12 @@ def main():
             if player.check_collision(astro):
                 print("game over")
                 return
+        for astro in asteroids:
+            for bullet in shots:
+                if bullet.check_collision(astro):
+                    bullet.kill()
+                    astro.split()
+
         
 
 
